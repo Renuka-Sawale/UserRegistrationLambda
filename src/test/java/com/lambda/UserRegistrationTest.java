@@ -16,7 +16,26 @@ public class UserRegistrationTest {
     public void givenFirstNameWhenNotProperShouldThrowException() throws UserRegistrationException {
         UserRegistration userregistration = new UserRegistration();
         try {
-            boolean result = userregistration.firstNameTest("re");
+            boolean result = userregistration.firstNameTest("ren");
+            Assertions.assertFalse(result);
+        }
+        catch (UserRegistrationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenLastNameWhenProperShouldReturnResult() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        boolean result = userregistration.lastNameTest("Sawale");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenLastNameWhenNotProperShouldThrowException() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        try {
+            boolean result = userregistration.lastNameTest("saw");
             Assertions.assertFalse(result);
         }
         catch (UserRegistrationException e) {
