@@ -42,4 +42,61 @@ public class UserRegistrationTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenEmailWhenProperShouldReturnResult() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        boolean result = userregistration.emailTest("rrsuryawanshi11@gmail.com");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenEmailWhenNotProperShouldThrowException() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        try {
+            boolean result = userregistration.emailTest("r@gmail.com");
+            Assertions.assertFalse(result);
+        }
+        catch (UserRegistrationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenPhoneNoWhenProperShouldReturnResult() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        boolean result = userregistration.phoneNoTest("91 8232345678");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenPhoneNoWhenNotProperShouldThrowException() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        try {
+            boolean result = userregistration.phoneNoTest("913456789045");
+            Assertions.assertFalse(result);
+        }
+        catch (UserRegistrationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenPasswordWhenProperShouldReturnResult() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        boolean result = userregistration.passwordTest("Bridgelabz@1234");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenPasswordWhenNotProperShouldThrowException() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        try {
+            boolean result = userregistration.passwordTest("bridgelabz");
+            Assertions.assertFalse(result);
+        }
+        catch (UserRegistrationException e) {
+            e.printStackTrace();
+        }
+    }
 }
